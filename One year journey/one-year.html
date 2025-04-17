@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery Hover Scale</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .header {
+      text-align: center;
+      color: rgb(233, 159, 171);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .overlay h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+
+    }
+
+    .modal-content {
+      width: 70%;
+      background-color: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      animation: scaleUp 0.3s ease-in-out;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .modal-description {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal-description h3 {
+      margin: 0 0 10px;
+    }
+
+    .modal-description p {
+      margin: 0;
+      color: #666;
+    }
+
+    @keyframes scaleUp {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>MEHANDI</h1>
+    Open all of them
+  </div>
+  <div class="gallery">
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 1.jpg', 'T-shirt For You', 'Eta first time tumi amr tshirt pore chila r valo o lagchila... tmk emni new tshirt  toh dilam but amr ekta dawa holo n but vebechi ekta tshirt dibo tmk jkn pabo vabe rekechi.....')">
+      <img src="memories/memories 1.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>T-shirt For You</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 2.jpg', 'Clean Shave ', 'Eta clean shave er pore pic jkn tumi surprise paye chilo amr look dekha r pic tulte chichila na bolte paro surprise e reke chilm tmr jonno jantam je jante parle raag korba.... koi na hoye jai mistake but eta cricket er kotha chilo tai eto ta toh chole baby...')">
+      <img src="memories/memories 2.jpg" alt="Image 2" />
+      <div class="overlay">
+        <h3>Clean Shave</h3>
+      </div>
+    </div>
+
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 4.jpg', 'Cute in one frame', 'Eta picture toh janai e ache amder eta te kichu bolar nai bsss onk cute lagchi 2 jon e....')">
+      <img src="memories/memories 4.jpg" alt="Image 2">
+      <div class="overlay">
+        <h3>Cute in one frame</h3>
+      </div>
+    </div>
+
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 5.jpg', 'Your Tension', 'Eta pic toh dekha amr eto hasi pai ki bolo ek toh rege chila tar pore toh  jkn amr phone ta dhora porlo tar pore toh laglo jeno tor puro jaan uragiya chilo...sotti bolbo toh o Tension hoye chilo jkn director daklo toke but kichu korar chilo na tai tension lichilam na er poore toh amr bari te ektu pblm suru hoyechilo......')">
+      <img src="memories/memories 5.jpg" alt="Image 2" />
+      <div class="overlay">
+        <h3>Your Tension</h3>
+      </div>
+    </div>
+
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 6.jpg', 'Sukoon', 'Eta pic dekha toh amr onk sukoon pai jkn o dekhi....')">
+      <img src="memories/memories 6.jpg" alt="Image 2" />
+      <div class="overlay">
+        <h3>Sukoon...</h3>
+      </div>
+    </div>
+
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 7.jpg', 'House', 'Amar bari er pic jkn esa chila, ami onk aagei theka chaya chilm jeno tumi amr bari aso ami toh vabtam jeno tmk kichu na kichu bahana diya amr dakbo emni chole ase chila tai aro no tension... bss ekta jinis chute giya chilo amr maa r songe dekha korano tmr... pore kkno korabo tension nai....')">
+      <img src="memories/memories 7.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>House</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 8.jpg', 'Gal Fulli', 'Eta din er aage amader ja jhogra hoye chilo onk kharap tai toh eto rege chila r pic o tule chila na amr songe ota toh ami eto kosto kore tule chilm...phone o lite aso ni isa ke diya chaya chilo gal fulli kotha kar....')">
+      <img src="memories/memories 8.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>Gal Fulli</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item"
+      onclick="openModal('memories/memories 9.jpg', 'Picnic', 'Eta picnic er jeta te amra ek songe bose chilm tar aagei kuber bolechio r or kotha ta legeo giya chilo.....')">
+      <img src="memories/memories 9.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>Picnic</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('memories/memories 10.jpg', 'Picnic Pic', 'Best pic of picnic amk toh lagchilo jeno amra sports day er moto ebar o pic tul te parbo n r sotti tor songe dance korar onk iccha o chilo jeta oto valo kore toh holo na thik kore... last a eta pic er jonnoi amk valo laglo naholo toh puro mon kharap chilo amr....')">
+      <img src="memories/memories 10.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>Picnic Pic</h3>
+      </div>
+    </div>
+
+    
+
+
+  </div>
+
+  <div class="modal" id="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content" id="modalContent">
+      <img id="modalImg" src="" alt="Modal Image">
+      <div class="modal-description">
+        <h3 id="modalTitle"></h3>
+        <p id="modalText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imageSrc, title, description) {
+      document.getElementById('modalImg').src = imageSrc;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalText').textContent = description;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

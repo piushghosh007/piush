@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery Hover Scale</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .header{
+      text-align: center;
+      color: rgb(233, 159, 171);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .overlay h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+
+    }
+
+    .modal-content {
+      width: 70%;
+      background-color: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      animation: scaleUp 0.3s ease-in-out;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .modal-description {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal-description h3 {
+      margin: 0 0 10px;
+    }
+
+    .modal-description p {
+      margin: 0;
+      color: #666;
+    }
+
+    @keyframes scaleUp {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>MEHANDI</h1>
+    Open all of them
+  </div>
+  <div class="gallery">
+
+    <div class="gallery-item"
+      onclick="openModal('mehandi/mehandi 1.jpg', 'First Mehandi', 'first mehandi tmr haate amr naam er mone toh hobai koto jhogra kore chilam etar jonno baby gal o diya chilm but tumi bolechila tar pore r sob theka main kotha jeta bariya chilo amr muk theka je onnk simple ache tar toh eto tont mere chila bolar nai......aro onk pic ache tmr mehandi er ogulor modha kichuu ta amr dik theka........')">
+      <img src="mehandi/mehandi 1.jpg" alt="Image 1" />
+      <div class="overlay">
+        <h3>First Mehandi</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item"
+      onclick="openModal('mehandi/mehandi 2.jpg', 'Amr Naam ', 'Amk toh sob theka valo jano ki lege chilo jkn amra puro jhogra korlam tar pore jkn  tumi bolla je first time emni kore karo naam likha cho tkn toh ami tmr upra flat hoye giya chilam..... bolte paro hayai urchilm bcs tumi aageo relation a chila but jkn o suntam eta first time korlm tkn toh dil garden garden hoye jeto......')">
+      <img src="mehandi/mehandi 2.jpg" alt="Image 2" />
+      <div class="overlay">
+        <h3>Amr Naam</h3>
+      </div>
+    </div>
+
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 3.jpg', 'EID er Mehandi', 'Eta toh mehandi toh onk special amr jonno  bcs eta chilo amder first er mehandi tmr haat er amr naam er....... Love uhh baby for this!!')">
+    <img src="mehandi/mehandi 3.jpg" alt="Image 3" />
+    <div class="overlay">
+      <h3>EID er Mehandi</h3>
+    </div>
+  </div>
+
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 4.jpg', 'Amr Naam er Dot', 'Eta toh mane hobai amr naam na likha amr naam er pacha ta dot diya chia bolti pari inspired by isa...But amr bou or haat er ta besi sundor chilo eto aro valo lagto jodi dot gulo vorte partam ami jak hok onk valo chilo.....')">
+    <img src="mehandi/mehandi 4.jpg" alt="Image 2">
+    <div class="overlay">
+      <h3>Amr Naam er Dot</h3>
+    </div>
+
+  </div>
+
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 5.jpg', 'Love in Your Hands', 'Eta toh same but te amr naam er symbol e dhekte paye chilm onk sukoon paye chilm bcs eta haat bss amr jonnoi ache r amr haat er mehandi thakbe its my promise...')">
+    <img src="mehandi/mehandi 5.jpg" alt="Image 2" />
+    <div class="overlay">
+      <h3>Love in Your Hands</h3>
+    </div>
+  </div>
+
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 6.jpg', 'EID er Mehandi 2nd', 'Eta ta EID er mehandi special bcs onk kichu ghotlo eto din er modha jkn eta mehandi laga chilo tor haat a... ektu tough chilo r tmr bari te sobai jene giya chilo amader bepare but no pblm sob thik hobe r eksonge thakbo joldi e....')">
+    <img src="mehandi/mehandi 6.jpg" alt="Image 2" />
+    <div class="overlay">
+      <h3>EID er Mehandi 2nd</h3>
+    </div>
+  </div>
+
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 9.jpg', 'Tmr Naam', 'Tmr naam amr haat a likha aache mehandi nai toh ki holo naam toh thakbai haat naholei dil a toh bose gecha.... r eta toh first time jkn tmr naam likha chilo rahimul tmr naam amr haat eto sob mane raki eto vulak kar nai tmr husband......')">
+    <img src="mehandi/mehandi 9.jpg" alt="Image 1" />
+    <div class="overlay">
+      <h3>Tmr Naam</h3>
+    </div>
+  </div>
+
+  <div class="gallery-item"
+    onclick="openModal('mehandi/mehandi 8.jpg', 'Your Name', 'R eta toh mane hobai tumi likha chila amr haat a tuition er time a... jani n egulo sob naam er pic gulo amk rakar iccha kore aro onk pic aache tmr r tmr sob mehandi gulo onk valo lage r erokom e send korte thakba')">
+    <img src="mehandi/mehandi 8.jpg" alt="Image 1" />
+    <div class="overlay">
+      <h3>OUR NAME</h3>
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+  <div class="modal" id="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content" id="modalContent">
+      <img id="modalImg" src="" alt="Modal Image">
+      <div class="modal-description">
+        <h3 id="modalTitle"></h3>
+        <p id="modalText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imageSrc, title, description) {
+      document.getElementById('modalImg').src = imageSrc;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalText').textContent = description;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

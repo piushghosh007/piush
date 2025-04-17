@@ -1,0 +1,275 @@
+:root {
+    --primary-color: #f6e3e3;
+    --secondary-color: #fff5f7;
+    --accent-color: #d36c6c;
+    --highlight-color: #b3546a;
+    --text-color: #3a3a3a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* header section start */
+header {
+    background: linear-gradient(to right, #f6e3e9, #fff5f7);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--highlight-color);
+    font-family: 'Brush Script MT', cursive;
+}
+/* header section ends */
+
+/* nav section starts */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: var(--accent-color);
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    margin: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* nav section ends here*/
+
+/* hero section starts here */
+
+.hero {
+    height: 80vh;
+    background-image: url("ghibli image/memories\ 12.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero h2 {
+    margin-top: 365px;
+    font-size: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    z-index: 1;
+    position: relative;
+    font-family: 'Brush Script MT', cursive;
+}
+
+/* header section ends here */
+
+/* slider section starts here */
+
+.container{
+    height: 70vh;
+}
+
+.container h1{
+    text-align: center;
+    font-size: 2rem;
+    color: var(--highlight-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.slider-container{
+    width: 85vmin;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    bottom: -114%;
+    left: 50%;
+    overflow: hidden;
+    border: 20px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 10px 25px 30px rgba(30,30,200,0.3);
+}
+
+.wapper{
+    width: 100%;
+    display: flex;
+    aspect-ratio: 16/9;
+    animation: slide 16s infinite;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(0);
+    }
+    30%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    55%{
+        transform: translateX(-200%);
+    }
+    75%{
+        transform: translateX(-200%);
+    }
+    80%{
+        transform: translateX(-300px);
+    }
+    100%{
+        transform: translateX(-300%);
+    }
+}
+
+/* slider section ends here */
+
+/* gallary section starts here */
+
+
+.section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.section h3 {
+    font-size: 2rem;
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+.section p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 3/2;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* gallary section ends here */
+
+/* marriage section starts here */
+
+.marriage{
+    height: 50vh;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.marriage h1{
+    text-align: center;
+    font-size: 2rem;
+    color: var(--highlight-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.link{
+    text-align: center;
+    border: 3px solid white;
+    background-color: rgb(241, 161, 174);
+    font-size: 2rem;
+    padding: 2rem;
+
+}
+
+.link a{
+    display: inline;
+    text-align: center;
+    text-decoration: none;
+    color:  var(--highlight-color);
+}
+
+.link a:hover{
+    text-decoration: underline;
+
+}
+
+/* marriage section ends here */
+
+/* footer section starts here */
+
+footer {
+    background: var(--accent-color);
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* footer section ends here */
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
